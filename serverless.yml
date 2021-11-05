@@ -1,10 +1,13 @@
+org: oscarjvd
+app: my-express-application
 # serverless.yml
-
+plugins:
+  - serverless-offline
 service: my-express-application
 
 provider:
   name: aws
-  runtime: nodejs6.10
+  runtime: nodejs14.x
   stage: dev
   region: us-east-1
 
@@ -14,3 +17,5 @@ functions:
     events:
       - http: ANY /
       - http: "ANY {proxy+}"
+    # plugins:
+    #   - serverless-offline
